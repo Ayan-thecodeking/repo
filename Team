@@ -1,0 +1,122 @@
+import React from 'react'
+import './team.css'
+const Team = () => {
+
+    const teamMembers = [
+        {
+            name: 'Ayan Gupta',
+            position: 'Head Chef',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+
+        },
+        {
+            name: 'Sia Sharma ',
+            position: 'Pastry Chef',
+            bio: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+            imageUrl: 'https://images.unsplash.com/photo-1602442787305-decbd65be507?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+
+        },
+        {
+            name: 'Rishi Sen',
+            position: 'Sous Chef',
+            bio: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.',
+            imageUrl: 'https://images.unsplash.com/photo-1610088441520-4352457e7095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+
+        },
+    ];
+    return (
+        <div className="team-section">
+            <h2 className='team-header'>Meet Our Culinary Dreamweavers</h2>
+            <p>Crafting Delicious Experiences with Passion and Precision</p>
+            <div className="team-members">
+                {teamMembers.map((member, index) => (
+                    <div className="team-member" key={index}>
+                        <img src={member.imageUrl} alt={member.name} />
+                         <h3>{member.name}</h3>
+                        <p className='para'>{member.position}</p>
+                        <p className='bio'>{member.bio}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default Team
+
+
+
+.team-section {
+  margin: 2rem;
+}
+.team-header{
+    font-size: 6rem;
+    text-align: center;
+}
+.team-section p{
+    font-size: 3rem;
+    text-align: center; 
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  margin: 15rem 0;
+}
+
+.team-member {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 3rem 8rem;
+  background: #f3ece3;
+  
+}
+
+.team-member:hover img {
+    transform: scale(1.05);
+}
+
+.team-member img {
+    /* width: 100%; */
+    height: 500px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member-content {
+  padding: 1rem;
+}
+
+.team-member h3 {
+  margin-top: 1rem;
+  padding-top: 1.6rem;
+  font-size: 3.3rem;
+  text-align: center;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #8a3e1e;
+}
+
+@media screen and (max-width: 768px) {
+  .team-members {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .team-member img {
+    height: 300px;
+  }
+  .team-header{
+    font-size: 4rem;
+    text-align: center;
+}
+.team-section p{
+    font-size: 1.5rem;
+    text-align: center; 
+}
+}
